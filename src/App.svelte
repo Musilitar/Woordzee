@@ -1,18 +1,23 @@
 <script lang="ts">
-    import Message from './lib/Message.svelte'
+    import Scribble from './lib/Scribble.svelte'
+    import { scribbles } from './stores'
 
-    const persistMessage = (event) => {
-        console.log(`Updated message: ${event.detail.message}`)
+    const startScribble = () => {
+        $scribbles = [...$scribbles, { id: 0, text: 'New scribble', state: 0 }]
     }
 </script>
 
 <main>
-    <Message on:update={persistMessage} />
+    <button on:click={startScribble}>New</button>
+    {#each $scribbles as scribble}
+        <Scribble {scribble} />
+    {/each}
 </main>
 
 <style>
     main {
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
         width: 100%;
