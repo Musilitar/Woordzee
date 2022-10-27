@@ -1,5 +1,17 @@
 :root {
+    --pink: rgba(121, 9, 85, 1);
+    --yellow: rgba(255, 226, 0, 1);
+}
+
+* {
     font-family: sans-serif;
     margin: 0;
     padding: 0;
+}
+
+html,
+body,
+#app {
+    width: 100%;
+    height: 100%;
 }
